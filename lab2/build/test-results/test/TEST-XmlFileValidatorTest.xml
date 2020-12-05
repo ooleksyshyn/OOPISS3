@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="XmlFileValidatorTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-12-05T02:53:01" hostname="oleksiipc" time="0.055">
+<testsuite name="XmlFileValidatorTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-12-05T02:56:32" hostname="oleksiipc" time="0.058">
   <properties/>
-  <testcase name="validXMLvalidation" classname="XmlFileValidatorTest" time="0.009"/>
-  <testcase name="invalidXMLvalidation" classname="XmlFileValidatorTest" time="0.046"/>
+  <testcase name="validXMLvalidation" classname="XmlFileValidatorTest" time="0.008"/>
+  <testcase name="invalidXMLvalidation" classname="XmlFileValidatorTest" time="0.05"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[Dec 05, 2020 4:53:01 AM Parser.XmlFileValidator validateXMLDocument
+  <system-err><![CDATA[Dec 05, 2020 4:56:32 AM Parser.XmlFileValidator validateXMLDocument
 INFO: Validation error : cvc-complex-type.2.4.a: Invalid content was found starting with element 'critical'. One of '{price}' is expected.
 ]]></system-err>
 </testsuite>

@@ -17,7 +17,7 @@ public class DeviceBuilder {
     public DeviceBuilder() {
         device = new Device();
         devices = new ArrayList<>();
-        rootName = "Paper";
+        rootName = "Device";
     }
 
     public Device getDevice(){
