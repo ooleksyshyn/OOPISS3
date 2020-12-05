@@ -1,0 +1,45 @@
+
+Device{ 
+	Name: Disk drive, 
+	Origin: Ukraine, 
+	Price: 100.0, 
+	Type: {is peripheral : yes, consumption: 15.0, cooler: no, type: IO device, port: USB}, 
+	Critical: No
+}
+Device{ 
+	Name: Monitor, 
+	Origin: China, 
+	Price: 400.0, 
+	Type: {is peripheral : yes, consumption: 45.0, cooler: no, type: multimedia, LPT}, 
+	Critical: Yes
+}
+
+Device{ 
+	Name: Disk drive, 
+	Origin: Ukraine, 
+	Price: 100.0, 
+	Type: {is peripheral : yes, consumption: 15.0, cooler: no, type: IO device, port: USB}, 
+	Critical: No
+}
+Device{ 
+	Name: Monitor, 
+	Origin: China, 
+	Price: 400.0, 
+	Type: {is peripheral : yes, consumption: 45.0, cooler: no, type: multimedia, LPT}, 
+	Critical: Yes
+}
+
+Device{ 
+	Name: Disk drive, 
+	Origin: Ukraine, 
+	Price: 100.0, 
+	Type: {is peripheral : yes, consumption: 15.0, cooler: no, type: IO device, port: USB}, 
+	Critical: No
+}
+Device{ 
+	Name: Monitor, 
+	Origin: China, 
+	Price: 400.0, 
+	Type: {is peripheral : yes, consumption: 45.0, cooler: no, type: multimedia, LPT}, 
+	Critical: Yes
+}
