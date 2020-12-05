@@ -1,0 +1,28 @@
+<Computers>
+    <Device>
+        <name>Disk drive</name>
+        <origin>Ukraine</origin>
+        <price>100</price>
+        <critical>false</critical>
+        <Type>
+            <peripheral>true</peripheral>
+            <consumption>15</consumption>
+            <cooler>false</cooler>
+            <group>IODevices</group>
+            <port>USB</port>
+        </Type>
+    </Device>
+    <Device>
+        <name>Monitor</name>
+        <origin>China</origin>
+        <price>400</price>
+        <critical>true</critical>
+        <Type>
+            <peripheral>true</peripheral>
+            <consumption>45</consumption>
+            <cooler>false</cooler>
+            <group>Multimedia</group>
+            <port>LPT</port>
+        </Type>
+    </Device>
+</Computers>

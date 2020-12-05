@@ -1,0 +1,22 @@
+<Computers>
+    <Device>
+	<name>Name</name>
+	<origin>Test</origin>
+	<critical>critical</critical>
+        <Type>
+	    <cooler>true</cooler>
+            <consumption>100</consumption>
+            <peripheral>true</peripheral>
+        </Type>
+    </Device>
+    <Device>
+	<name>Second</name>
+	<origin>Newspaper</origin>
+	<critical>false</critical>
+        <Type>
+	    <cooler>true</cooler>
+            <consumption>100000000000</consumption>
+            <peripheral>false</peripheral>
+        </Type>
+    </Device>
+</Computers>
