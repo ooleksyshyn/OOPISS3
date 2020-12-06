@@ -14,9 +14,6 @@ class Labyrinth {
           (i) => List.generate(nColumns, (j) => LabyrinthCell())
   );
 
-  void init() {
-    barriers = List.generate(nRows, (index) => List.generate(nColumns, (index) => LabyrinthCell()));
-  }
 
   List<List<LabyrinthCell>> createLabyrinth() {
     playerX = 0;
@@ -27,6 +24,7 @@ class Labyrinth {
 
     return generator.result;
   }
+
 
   bool isAtFinish() {
     return playerX == goalX && playerY == goalY;
@@ -48,6 +46,7 @@ class Labyrinth {
     return CellContent.NONE;
   }
 
+
   LabyrinthCell cellAt(index) {
     int row = index ~/ nColumns;
     int column = index % nColumns;
@@ -55,9 +54,11 @@ class Labyrinth {
     return barriers[row][column];
   }
 
+
   LabyrinthCell currentCell() {
     return barriers[playerX][playerY];
   }
+
 
   void move(Direction dir) {
     switch (dir) {
@@ -79,6 +80,7 @@ class Labyrinth {
       }
     }
   }
+
 
   bool allowsMove(Direction dir) {
     switch(dir) {
