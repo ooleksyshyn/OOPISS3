@@ -2,12 +2,23 @@ import 'package:flutter/material.dart';
 import 'cell.dart';
 import 'player.dart';
 import 'labyrinth.dart';
+import 'labyrinth_cell.dart';
+
+
+Color edgeColor(bool hasEdge) {
+  if (hasEdge) {
+    return Colors.white;
+  } else {
+    return Colors.black;
+  }
+}
 
 
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
+
 
 class _HomePageState extends State<HomePage> {
   int score = 0;
@@ -16,7 +27,7 @@ class _HomePageState extends State<HomePage> {
 
   void startGame() {
     setState(() {
-      labyrinth.createLabyrinth();
+      labyrinth.barriers = labyrinth.createLabyrinth();
       isGameOn = true;
     });
   }
@@ -35,16 +46,16 @@ class _HomePageState extends State<HomePage> {
       return;
     }
 
-    var move = 0;
+    Direction dir;
     if (delta > 5) {
-      move = 1;
+      dir = Direction.BOTTOM;
     } else if (delta < -5) {
-      move = -1;
+      dir = Direction.TOP;
     }
 
-    if (!labyrinth.isBarrier(labyrinth.playerX + move, labyrinth.playerY)) {
+    if (labyrinth.currentCell().allowsMove(dir) && labyrinth.allowsMove(dir)) {
       setState(() {
-        labyrinth.playerX += move;
+        labyrinth.move(dir);
       });
     }
 
@@ -56,20 +67,31 @@ class _HomePageState extends State<HomePage> {
       return;
     }
 
-    var move = 0;
+    Direction dir;
     if (delta > 5) {
-      move = 1;
+      dir = Direction.RIGHT;
     } else if (delta < -5) {
-      move = -1;
+      dir = Direction.LEFT;
     }
 
-    if (!labyrinth.isBarrier(labyrinth.playerX, labyrinth.playerY + move)) {
+    if (labyrinth.currentCell().allowsMove(dir) && labyrinth.allowsMove(dir)) {
       setState(() {
-        labyrinth.playerY += move;
+        labyrinth.move(dir);
       });
     }
 
     checkFinish();
+  }
+
+  CellColors indexToColor(int index) {
+    var cell = labyrinth.cellAt(index);
+
+    return CellColors(
+      left: edgeColor(cell.hasLeftBorder),
+      top: edgeColor(cell.hasTopBorder),
+      right: edgeColor(cell.hasRightBorder),
+      bottom: edgeColor(cell.hasBottomBorder),
+    );
   }
 
   Widget displayCell(BuildContext context, int index) {
@@ -79,21 +101,19 @@ class _HomePageState extends State<HomePage> {
       case CellContent.PLAYER: {
         return Cell(
           child: Player(),
+          colors: indexToColor(index),
         );
       }
       case CellContent.GOAL: {
         return Cell(
-          innerColor: Colors.red,
-        );
-      }
-      case CellContent.BARRIER: {
-        return Cell(
-          outerColor: Colors.blue[900],
-          innerColor: Colors.blue[800],
+          innerColor: Colors.yellow,
+          colors: indexToColor(index),
         );
       }
       case CellContent.NONE: {
-        return Cell();
+        return Cell(
+          colors: indexToColor(index),
+        );
       }
     }
 
@@ -124,7 +144,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    labyrinth.init();
     return Scaffold(
       backgroundColor: Colors.black,
       body: Column(
